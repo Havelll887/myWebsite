@@ -1,12 +1,14 @@
 import React from 'react';
-// import logo from './logo.svg';
-import './App.css';
 
-import Hello from './views/hello/index'
+import './App.css';
+import { HashRouter } from "react-router-dom";
+import Router from "./router/index"
 
 function App() {
     return (
-        <Hello />
+        <HashRouter>
+            <Router />
+        </HashRouter>
     );
 }
 
