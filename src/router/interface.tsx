@@ -1,5 +1,4 @@
 import React from 'react';
-// import { RouteComponentProps } from "react-router";
 
 
 export interface MetaProps {
@@ -12,7 +11,6 @@ export interface RouteObject {
     caseSensitive?: boolean;
     children?: RouteObject[];
     element?: React.ReactNode;
-    // index?: boolean;
     path?: string;
     meta?: MetaProps;
     isLink?: string;
