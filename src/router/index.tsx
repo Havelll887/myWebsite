@@ -2,7 +2,8 @@ import React from 'react';
 import { Navigate, useRoutes } from 'react-router-dom';
 import { RouteObject } from "./interface";
 
-import Home from "../views/home/index"
+// import Home from "@/views/home/index"
+import Home from "@/views/home/index"
 
 export const routerArray: RouteObject[] = [];
 
