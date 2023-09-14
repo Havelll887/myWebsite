@@ -4,11 +4,11 @@ import "./index.css"
 
 
 
-export default class myNav extends React.Component {
+export default class myFoot extends React.Component {
     render(): React.ReactNode {
         return (
             <div className="header-container">
-                <div>这里是导航栏内容</div>
+                <div>这里是底部内容</div>
             </div>
         )
     }

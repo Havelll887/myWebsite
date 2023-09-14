@@ -6,9 +6,10 @@ export default class Home extends Component {
     render(): React.ReactNode {
         return (
             <div >
-               首页
-               导航栏
-               
+                首页
+                导航栏
+                hhhhhh
+                2456
             </div>
         )
     }

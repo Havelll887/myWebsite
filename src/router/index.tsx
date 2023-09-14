@@ -2,14 +2,27 @@ import React from 'react';
 import { Navigate, useRoutes } from 'react-router-dom';
 import { RouteObject } from "./interface";
 
-import Home from "../views/home/index"
+// import Home from "@/views/home/index"
+// import Home from "@/views/home/index"
+import MyLayout from "@/components/myLayout/index"
+import Test from '@/views/hello/index';
 
+console.log('@@@@@')
 export const routerArray: RouteObject[] = [];
 
 export const rootRouter: RouteObject[] = [
     {
         path: "/",
-        element: <Home />,
+        element: <MyLayout />,
+        children: [
+            {
+                path: "/test",
+                element: <Test />,
+                meta: {
+                    title: "路由测试页面",
+                },
+            }
+        ]
     },
     {
         path: "*",
