@@ -1,12 +1,21 @@
-import React, { Component } from 'react'
+import React from 'react'
 
+import "./index.css"
 
-export default class Home extends Component {
+import { Outlet } from "react-router-dom";
 
-    render(){
+import MyNav from "@/components/myNav/index"
+import MyFoot from "@/components/myFoot/index"
+
+export default class myLayout extends React.Component {
+
+    render(): React.ReactNode {
         return (
-            <div>
-
+            <div className="layout-container">
+                <div>这里是layout页面</div>
+                <MyNav />
+                <Outlet />
+                <MyFoot />
             </div>
         )
     }
