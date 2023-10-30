@@ -1,0 +1,13 @@
+.header-container {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+
+    .header-contents {
+        padding: 15px;
+        
+    }
+}
