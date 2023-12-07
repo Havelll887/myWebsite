@@ -12,9 +12,13 @@ export default class myLayout extends React.Component {
     render(): React.ReactNode {
         return (
             <div className="layout-container">
-                <div>这里是layout页面</div>
+                {/* 头部导航栏 */}
                 <MyNav />
+
+                {/* 中间内容 */}
                 <Outlet />
+
+                {/* 底部 */}
                 <MyFoot />
             </div>
         )

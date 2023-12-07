@@ -1,6 +1,8 @@
 import React from 'react';
 
 import './App.css';
+import "@/common/css/common.css"
+
 import { HashRouter } from "react-router-dom";
 import Router from "./router/index"
 
