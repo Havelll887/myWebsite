@@ -1,6 +1,4 @@
-import React from 'react';
-
-import './App.css';
+import './App.scss';
 import "@/common/css/common.css"
 
 import { HashRouter } from "react-router-dom";

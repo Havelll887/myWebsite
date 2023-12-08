@@ -1,8 +1,11 @@
   .navbar {
-      background-color: rgba(0, 0, 0, 0.1);
-      z-index         : 99;
-      padding-top     : 15px;
-      padding-bottom  : 15px;
+      background    : transparent;
+      z-index       : 99;
+      padding-top   : 15px;
+      padding-bottom: 15px;
+      width         : 100%;
+      position      : fixed !important;
+      top           : 0;
   }
 
   //  tab 按钮栏
@@ -29,18 +32,18 @@
 
   //  右侧收缩展开图标
   .navbar-toggler {
-      border : 0;
-      padding: 0;
+      border : none !important;
+      padding: 0 !important;
       cursor : pointer;
       margin : 0;
       width  : 30px;
       height : 35px;
-      outline: none;
+      outline: none !important;
   }
 
   .navbar-toggler:focus {
-      outline   : none;
-      box-shadow: none;
+      outline   : none !important;
+      box-shadow: none !important;
   }
 
   .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
@@ -92,4 +95,15 @@
 
   .navbar-toggler .navbar-toggler-icon::after {
       top: 8px;
+  }
+
+  .sticky-wrapper {
+      position: absolute;
+      top     : 0;
+      right   : 0;
+      left    : 0;
+  }
+
+  .sticky-wrapper.is-sticky .navbar {
+      background-color: rgba(0, 0, 0, 0.85);
   }
