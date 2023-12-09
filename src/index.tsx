@@ -8,7 +8,7 @@ import 'bootstrap/dist/js/bootstrap.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 // 引入语言包
-// import '@/i18n'
+import '@/i18n'
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement

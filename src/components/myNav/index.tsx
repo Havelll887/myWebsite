@@ -1,9 +1,8 @@
-import React, { memo } from 'react'
+import { memo } from 'react'
 
 import "./index.scss"
-import { render } from '@testing-library/react'
 
-// import { useTranslation } from 'react-i18next'
+import { Trans } from 'react-i18next'
 
 
 // const el = document.querySelector(".sticky")
@@ -13,26 +12,27 @@ import { render } from '@testing-library/react'
 // );
 
 // observer.observe(el);
-
+// 操作按钮
+const tabList = [
+    {
+        name: "about me",
+    },
+    {
+        name: "project"
+    },
+    {
+        name: "website"
+    },
+    {
+        name: "connect me"
+    },
+    {
+        name: "简",
+        selectList: ['简', 'English']
+    },
+]
 
 const myNav = memo(() => {
-    // const { t } = useTranslation()
-    // 操作按钮
-    const tabList = [
-        {
-            name: "关于我",
-            // name: t('个1人中心'),
-        },
-        {
-            name: "项目"
-        },
-        {
-            name: "在线地址"
-        },
-        {
-            name: "联系我"
-        }
-    ]
 
     return (
         <div className="sticky-top sticky">
@@ -40,9 +40,6 @@ const myNav = memo(() => {
                 <div className="container-fluid">
                     {/* 左侧的logo */}
                     <div>这里是logo</div>
-
-                    {/* 中英文切换占位 */}
-                    <div>中 英</div>
 
                     {/* 响应式出现的菜单按钮  */}
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,11 +51,15 @@ const myNav = memo(() => {
                         <div className="navbar-nav">
                             {Object.values(tabList).map((ele, index) => {
                                 return (
-                                    <div key={index} className="nav-link">{ele.name}</div>
+                                    <div key={index} className="nav-link">
+                                        <Trans>{ele.name}</Trans>
+                                    </div>
                                 )
                             })}
                         </div>
                     </div>
+
+
                 </div>
             </nav>
         </div>
