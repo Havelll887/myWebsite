@@ -1,4 +1,5 @@
 import { memo } from 'react'
+import { Trans } from 'react-i18next'
 import "./index.scss"
 
 const projectList = [
@@ -60,9 +61,13 @@ const Home = memo(() => {
             <div className="hero-section">
                 <div className="row">
                     {/* 画像 */}
-                    <div className="col-md-5 hero-items flex-row flex-center">左边放个自画像</div>
+                    <div className="col-md-5 hero-items flex-row flex-center">
+                        <img className="" src={require('./src/img/tempPic.jpg')} />
+                    </div>
                     {/* 简短介绍 */}
-                    <div className="col-md-7 hero-items flex-row flex-center">右边一句话介绍，背景是好看背景</div>
+                    <div className="col-md-7 hero-items flex-row flex-center">
+                        <Trans>intruceSSSSs</Trans>
+                    </div>
                 </div>
             </div>
 
