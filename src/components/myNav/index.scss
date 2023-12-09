@@ -4,8 +4,23 @@
       padding-top   : 15px;
       padding-bottom: 15px;
       width         : 100%;
-      position      : fixed !important;
-      top           : 0;
+  }
+
+  .sticky {
+      position: fixed !important;
+      top     : 0;
+      width   : 100%;
+  }
+
+  .is-sticky {
+      background-color: rgba(0, 0, 0, 0.65);
+   
+  }
+
+  @media screen and (max-width: 768px) {
+      .navbar {
+          background-color: rgba(0, 0, 0, 0.65);
+      }
   }
 
   //  tab 按钮栏

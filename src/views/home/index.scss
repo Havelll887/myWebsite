@@ -17,12 +17,90 @@
         width : 100%;
 
         .hero-items {
-            padding: 0 !important;
+            padding    : 0 !important;
             border-left: #000000 1px solid;
         }
     }
 }
 
-.project-items{
+.item-gap {
+    padding: 2.5rem 1.5rem;
+}
+
+// 我的内容
+.myself-content {
     width: 100%;
+
+}
+
+.card {
+    overflow: hidden;
+}
+
+.margin-bottom-1rem {
+    margin-bottom: 1.5rem;
+}
+
+.project-items {
+    width: 100%;
+
+    .project-items-pic {
+        background-size    : 100% auto;
+        background-position: center;
+        background-repeat  : no-repeat;
+    }
+
+    .project-items-pic-size {
+        max-height: 180px;
+        min-height: 180px;
+    }
+
+    .item-reverse{
+        flex-direction: row-reverse;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .project-items .project-items-pic-size {
+        max-height: 200px;
+        min-height: 200px;
+    }
+    .item-gap{
+        padding: 5rem 8rem;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .project-items .project-items-pic-size {
+        max-height: 220px;
+        min-height: 220px;
+    }
+    .item-gap{
+        padding: 5rem 12rem;
+    }
+}
+
+
+@media screen and (min-width: 1919px) {
+    .project-items .project-items-pic-size {
+        max-height: 240px;
+        min-height: 240px;
+    }
+    .item-gap{
+        padding: 5rem 16rem;
+    }
+}
+
+.personal-projext {
+
+    .personal-projext-pic {
+        background-size    : 100% auto;
+        background-position: center;
+        background-repeat  : no-repeat;
+    }
+
+    .personal-projext-pic-size {
+        max-height: 180px;
+        min-height: 180px;
+    }
 }

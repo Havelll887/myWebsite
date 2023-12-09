@@ -1,32 +1,42 @@
-import React from 'react'
+import React, { memo } from 'react'
 
 import "./index.scss"
+import { render } from '@testing-library/react'
 
 // import { useTranslation } from 'react-i18next'
-// const { t } = useTranslation()
-
-// 操作按钮
-const tabList = [
-    {
-        name: "关于我",
-        // name: t('用户操作.个人中心'),
-    },
-    {
-        name: "项目"
-    },
-    {
-        name: "在线地址"
-    },
-    {
-        name: "联系我"
-    }
-]
 
 
-export default class myNav extends React.Component {
-    render(): React.ReactNode {
-        return (
-            <nav className="navbar navbar-expand-md">
+// const el = document.querySelector(".sticky")
+// const observer = new IntersectionObserver( 
+//   ([e]) => e.target.classList.toggle("is-sticky", e.intersectionRatio < 1),
+//   { threshold: [1] }
+// );
+
+// observer.observe(el);
+
+
+const myNav = memo(() => {
+    // const { t } = useTranslation()
+    // 操作按钮
+    const tabList = [
+        {
+            name: "关于我",
+            // name: t('个1人中心'),
+        },
+        {
+            name: "项目"
+        },
+        {
+            name: "在线地址"
+        },
+        {
+            name: "联系我"
+        }
+    ]
+
+    return (
+        <div className="sticky-top sticky">
+            <nav className="navbar navbar-expand-md ">
                 <div className="container-fluid">
                     {/* 左侧的logo */}
                     <div>这里是logo</div>
@@ -51,6 +61,9 @@ export default class myNav extends React.Component {
                     </div>
                 </div>
             </nav>
-        )
-    }
-}
+        </div>
+
+    )
+})
+
+export default myNav
