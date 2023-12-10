@@ -8,6 +8,16 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 import zhTranslation from './locales/zh.json'
 import enTranslation from './locales/en.json'
 
+
+// const resources ={
+//     en:{
+//         common:{}
+//     },
+//     zh_CN:{
+
+//     }
+// }
+
 i18n
   .use(LanguageDetector) // 嗅探当前浏览器语言 zh-CN
   .use(initReactI18next) // 将 i18n 向下传递给 react-i18next
@@ -20,7 +30,7 @@ i18n
     },
     fallbackLng: 'zh_CN', // 默认当前环境的语言
     // 需要链式调用messages.welcome
-    // keySeparator: false, // we do not use keys in form messages.welcome
+    keySeparator: false, // we do not use keys in form messages.welcome
     debug: false,
     interpolation: { escapeValue: false },
   })
