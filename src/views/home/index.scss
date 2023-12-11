@@ -4,7 +4,6 @@
 
 // 整页banner
 .hero-section {
-    background-color   : rgba($color: #000000, $alpha: 0.4);
     background-repeat  : no-repeat;
     background-size    : cover;
     background-position: center;
@@ -12,13 +11,34 @@
     height             : 100vh;
     width              : 100%;
 
-    &>div {
+    .box {
         height: 100%;
         width : 100%;
 
         .hero-items {
-            padding    : 0 !important;
-            // border-left: #000000 1px solid;
+            padding       : 0 !important;
+        }
+    }
+
+    .hero-section-slide {
+        position : absolute;
+        bottom   : 10px;
+        left     : 50%;
+        transform: translateX(-50%);
+    }
+
+    .avator-box {
+        border: $primary-color 2px solid;
+        border-radius: 149px;
+        .avator {
+            background-image: url('./src/img/img_person-avator.png');
+            background-size    : auto 100%;
+            background-position: center;
+            background-repeat  : no-repeat;
+            width: 300px;
+            height: 300px;
+            border-radius: 150px;
+            margin: 2px;
         }
     }
 }
@@ -55,19 +75,33 @@
         min-height: 180px;
     }
 
-    .item-reverse{
+    .item-reverse {
         flex-direction: row-reverse;
     }
 }
+
+
+// @media screen and (max-width: 768px) {
+//     .hero-section {
+//         .avator-box {
+//             .avator {
+//                 width   : 70%;
+//             }
+//         }
+//     }
+// }
 
 @media screen and (min-width: 1024px) {
     .project-items .project-items-pic-size {
         max-height: 200px;
         min-height: 200px;
     }
-    .item-gap{
+
+    .item-gap {
         padding: 5rem 8rem;
     }
+
+   
 }
 
 @media screen and (min-width: 1440px) {
@@ -75,7 +109,8 @@
         max-height: 220px;
         min-height: 220px;
     }
-    .item-gap{
+
+    .item-gap {
         padding: 5rem 12rem;
     }
 }
@@ -86,7 +121,8 @@
         max-height: 240px;
         min-height: 240px;
     }
-    .item-gap{
+
+    .item-gap {
         padding: 5rem 16rem;
     }
 }

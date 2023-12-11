@@ -1,17 +1,9 @@
 {
-    "Language": {
-        "Chinese": "中文",
-        "English": "英文"
-    },
-
-    "用户操作": {
-        "个1人中心": "个人1中心2",
-        "个人设置": "个人设置",
-        "退出登录": "退出登录"
-    },
-
-    "about me":"关于我",
-    "connect me":"联系我",
-    "project":"项目",
-    "website":"在线地址"
+    
+    "about me": "关于我",
+    "connect me": "联系我",
+    "project": "项目",
+    "website": "在线地址",
+    "slideDown":"请往下滑噢",
+    "Introduce yourself":"这里是中文的自我介绍"
 }
