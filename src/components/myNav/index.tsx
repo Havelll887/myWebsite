@@ -5,32 +5,70 @@ import "./index.scss"
 import { Trans } from 'react-i18next'
 
 
+
 // const el = document.querySelector(".sticky")
 // const observer = new IntersectionObserver( 
 //   ([e]) => e.target.classList.toggle("is-sticky", e.intersectionRatio < 1),
 //   { threshold: [1] }
 // );
-
 // observer.observe(el);
+
 // 操作按钮
 const tabList = [
     {
         name: "about me",
+        code: "about me",
     },
     {
-        name: "project"
+        name: "project",
+        code: "project",
     },
     {
-        name: "website"
+        name: "website",
+        code: "website",
     },
     {
-        name: "connect me"
+        name: "connect me",
+        code: "connect me",
     },
     {
         name: "简",
-        selectList: ['简', 'English']
+        code: "language",
+        selectList: ['简', 'EN']
     },
 ]
+
+interface tabListInterface {
+    name?: string,
+    code?: string,
+    selectList?: Array<string>,
+}
+
+// const popover = new bootstrap.Popover('.popover-dismiss', {
+//     trigger: 'focus'
+//   })
+
+// 右侧导航栏标签的条件渲染
+const TabMenu = (ele: tabListInterface) => {
+    if (ele.name !== '简') {
+        return (
+            <div>
+                <Trans>{ele.name}</Trans>
+            </div>
+        )
+    } else if (ele.selectList) {
+        return (
+            <select className="select-item" >
+                {Object.values(ele.selectList).map((item, idx) => {
+                    return (
+                        <option key={item} defaultValue={ele.name} className="select-option"> {item}</option>
+                    )
+                })
+                }
+            </select>
+        )
+    }
+}
 
 const myNav = memo(() => {
 
@@ -39,7 +77,9 @@ const myNav = memo(() => {
             <nav className="navbar navbar-expand-md ">
                 <div className="container-fluid">
                     {/* 左侧的logo */}
-                    <div>这里是logo</div>
+                    <div>
+                        <img src={require('./src/img/gif_logo.gif')}  className="navbar-logo"/>
+                    </div>
 
                     {/* 响应式出现的菜单按钮  */}
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,19 +91,17 @@ const myNav = memo(() => {
                         <div className="navbar-nav">
                             {Object.values(tabList).map((ele, index) => {
                                 return (
-                                    <div key={index} className="nav-link">
-                                        <Trans>{ele.name}</Trans>
+                                    <div key={index + '23'} className="nav-link">
+                                        {TabMenu(ele)}
                                     </div>
                                 )
                             })}
                         </div>
                     </div>
 
-
                 </div>
             </nav>
         </div>
-
     )
 })
 

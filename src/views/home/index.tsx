@@ -1,4 +1,5 @@
 import { memo } from 'react'
+import { Trans } from 'react-i18next'
 import "./index.scss"
 
 const projectList = [
@@ -58,12 +59,21 @@ const Home = memo(() => {
         <div className="body-container">
             {/* 整页的banner  */}
             <div className="hero-section">
-                <div className="row">
+                <div className="row box">
                     {/* 画像 */}
-                    <div className="col-md-5 hero-items flex-row flex-center">左边放个自画像</div>
+                    <div className="col-md-5 hero-items flex-row flex-center ">
+                        <div className="avator-box"><div className="avator"></div></div>
+                        {/* <img className="avator" src={require('./src/img/img_person-avator.png')} alt='' /> */}
+                    </div>
                     {/* 简短介绍 */}
-                    <div className="col-md-7 hero-items flex-row flex-center">右边一句话介绍，背景是好看背景</div>
+                    <div className="col-md-7 hero-items flex-column flex-center">
+                        <Trans>Introduce yourself</Trans>
+                        <div>hello there</div>
+                        <div>welcome to my space</div>
+                        <div>welcome to my space</div>
+                    </div>
                 </div>
+                <div className="hero-section-slide"><Trans>slideDown</Trans></div>
             </div>
 
             {/* 一些关于我的内容介绍 （工作经历，教育经理，个人技能等）*/}
@@ -87,11 +97,10 @@ const Home = memo(() => {
                     {Object.values(projectList).map((ele, index) => {
                         return (
                             <div className="card margin-bottom-1rem" key={index}>
-                                <div className={`row ${index % 2 == 0 ? "" : "item-reverse"}`} >
+                                <div className={`row ${index % 2 === 0 ? "" : "item-reverse"}`} >
                                     <div className="col-md-3 project-items-pic project-items-pic-size"
                                         style={{ backgroundImage: `url(${ele.bg})` }}>
                                     </div>
-                                    {/* <img className="col-md-3 project-items-pic" src={require('./src/img/tempPic.jpg')} /> */}
                                     <div className="card-body col-md-9">
                                         <h5 className="card-title">{ele.name}</h5>
                                         <p className="card-text">{ele.content}</p>
@@ -110,7 +119,7 @@ const Home = memo(() => {
                 <div className="row row-cols-1 row-cols-md-3 g-4">
                     {Object.values(personalList).map((ele, index) => {
                         return (
-                            <div className="col">
+                            <div className="col" key={index}>
                                 <div className="card">
                                     <div className="personal-projext-pic personal-projext-pic-size"
                                         style={{ backgroundImage: `url(${ele.bg})` }}>

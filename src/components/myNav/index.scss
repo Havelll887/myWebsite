@@ -4,7 +4,14 @@
       padding-top   : 15px;
       padding-bottom: 15px;
       width         : 100%;
+      background-color: rgba(0, 0, 0, 0.65);
   }
+
+  .navbar-logo {
+      height: 44px;
+      width: 55px;
+  }
+
 
   .sticky {
       position: fixed !important;
@@ -14,12 +21,15 @@
 
   .is-sticky {
       background-color: rgba(0, 0, 0, 0.65);
-   
   }
 
   @media screen and (max-width: 768px) {
       .navbar {
           background-color: rgba(0, 0, 0, 0.65);
+      }
+
+      .navbar-logo {
+          display: none;
       }
   }
 
@@ -121,4 +131,37 @@
 
   .sticky-wrapper.is-sticky .navbar {
       background-color: rgba(0, 0, 0, 0.85);
+  }
+
+  //   选择器
+  .select-item {
+      cursor     : pointer;
+      color      : $white-color;
+      font-size  : $menu-font-size;
+      font-weight: $font-weight-semibold;
+      padding    : 0 10px 0 2px;
+
+      background        : none;
+      appearance        : none;
+      -moz-appearance   : none;
+      /* Firefox */
+      -webkit-appearance: none;
+      /* Safari 和 Chrome */
+      /* 去掉边框 */
+      border            : 0;
+      box-shadow        : none;
+      outline           : none;
+      display           : block;
+
+      position: relative;
+
+      &:hover {
+          color: $primary-color;
+      }
+
+      .select-option {
+          color      : $dark-color;
+          font-size  : $menu-font-size;
+          font-weight: $font-weight-semibold;
+      }
   }
