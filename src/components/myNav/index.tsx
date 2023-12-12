@@ -78,7 +78,9 @@ const myNav = memo(() => {
                 <div className="container-fluid">
                     {/* 左侧的logo */}
                     <div>
-                        <img src={require('./src/img/gif_logo.gif')}  className="navbar-logo"/>
+                        {/* <img src={require('./src/img/gif_logo.gif')}  className="navbar-logo"/>
+                         */}
+                         {/* <Cat /> */}
                     </div>
 
                     {/* 响应式出现的菜单按钮  */}

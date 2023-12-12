@@ -8,9 +8,7 @@ import MyNav from "@/components/myNav/index"
 import MyFoot from "@/components/myFoot/index"
 
 export default class myLayout extends React.Component {
-    // constructor(): any {
 
-    // },
     render(): React.ReactNode {
         return (
             <div className="layout-container">
