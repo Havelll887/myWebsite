@@ -4,22 +4,77 @@
 
 .icons-item {
     margin: 10px 0;
+    
+    
 
     .icons-box {
-        height          : 40px;
-        width           : 40px;
-        margin-right    : 10px;
-        border-radius   : 20px;
-        background-color: $primary-color;
-        cursor          : pointer;
+        height: 50px;
+        width: 50px;
+        margin-right: 10px;
+        border-radius: 25px;
+        border: 2px solid $primary-color;
+        cursor: pointer;
 
         &>div {
-            font-size: 24px;
-            color    : $white-color;
+            width:100%;
+            border-radius: 50%;
+            margin: 2px;
+
+            text-align: center;
+            font-size: 28px;
+            color: $primary-color;
         }
 
         &:hover {
-            background-color: $secondary-color;
+            transform: scale(1.1);
+            transition: all .45s;
+
+            &>div {
+                color: $white-color;
+            }
+        }
+    }
+
+    .icon--whatsapp {
+        &:hover{
+            border: 2px solid #25D366 !important;
+            &>div {
+                background-image: linear-gradient(to top, rgba(#25b43c,1) 0%, rgba(#3ec252, 1) 50%, rgba(#5bd266, 1));
+            }
+        
+        }
+
+    }
+
+    .icon--location {
+        &:hover{
+            border: 2px solid #1a84ff !important;
+            &>div {
+                background-image: linear-gradient(to top, rgba(#0047d3,1) 0%, rgba(#1a84ff, 1) 30%);
+
+            }
+        
+        }
+        
+    }
+
+    .icon--email {
+        &:hover{
+            border: 2px solid #28a8ea !important;
+            &>div {
+                background-image: linear-gradient(to top, rgba(#0c6ecf,1) 0%, rgba(#2caeec, 1) 20%, rgba(#28a8ea, 1));
+            }
+        
+        }
+    }
+
+    .icon--github {
+        &:hover{
+            border: 2px solid #000 !important;
+            &>div {
+                background-color: #000;
+            }
+        
         }
     }
 }

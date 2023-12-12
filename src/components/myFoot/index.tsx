@@ -7,18 +7,22 @@ const iconList = [
     {
         name: "Email",
         class: 'bi-envelope',
+        className: "icon--email"
     },
     {
         name: "github",
         class: 'bi-github',
+        className: "icon--github"
     },
     {
         name: "location",
         class: 'bi-geo-alt',
+        className: "icon--location"
     },
     {
         name: "whatsapp",
         class: 'bi-whatsapp',
+        className: "icon--whatsapp"
     },
 ]
 
@@ -35,9 +39,11 @@ export default class myFoot extends React.Component {
                     <div className="col-md-6">
                         {Object.values(iconList).map((ele, index) => {
                             return (
-                                <div key={index} className="icons-item flex-row flex-align-items-center">
+                                <div key={index} className={`icons-item flex-row flex-align-items-center`}>
                                     {/* 图标 */}
-                                    <div className="icons-box flex-row flex-center"><div className={`bi ${ele.class}`} ></div></div>
+                                    <div className={`icons-box flex-row flex-center  ${ele.className}`}>
+                                        <div className={`bi ${ele.class}`} ></div>
+                                    </div>
                                     <span>{ele.name}</span>
                                 </div>
                             )
