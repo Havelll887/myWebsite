@@ -4,6 +4,8 @@ import "./index.scss"
 
 import { Trans } from 'react-i18next'
 
+import Cat from './src/cat/cat'
+
 
 
 // const el = document.querySelector(".sticky")
@@ -77,8 +79,9 @@ const myNav = memo(() => {
             <nav className="navbar navbar-expand-md ">
                 <div className="container-fluid">
                     {/* 左侧的logo */}
-                    <div>
-                        <img src={require('./src/img/gif_logo.gif')}  className="navbar-logo"/>
+                    <div className="left-logo">
+                        <Cat />
+                        {/* <img src={require('./src/img/gif_logo.gif')}  className="navbar-logo"/> */}
                     </div>
 
                     {/* 响应式出现的菜单按钮  */}

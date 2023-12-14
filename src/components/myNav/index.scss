@@ -1,15 +1,22 @@
   .navbar {
-      background    : transparent;
-      z-index       : 99;
-      padding-top   : 15px;
-      padding-bottom: 15px;
-      width         : 100%;
+      background      : transparent;
+      z-index         : 99;
+      padding-top     : 15px;
+      padding-bottom  : 15px;
+      width           : 100%;
       background-color: rgba(0, 0, 0, 0.65);
   }
 
   .navbar-logo {
-      height: 44px;
-      width: 55px;
+      height  : 44px;
+      width   : 55px;
+      position: relative;
+
+      .left-logo {
+          position: absolute;
+          left    : 0;
+          top     : 0;
+      }
   }
 
 
