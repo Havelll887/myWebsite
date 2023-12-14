@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import { Trans } from 'react-i18next'
 import "./index.scss"
-import Cat from "@/components/myNav/cat/index"
+
 
 const projectList = [
     {
@@ -137,7 +137,7 @@ const Home = memo(() => {
                 </div>
             </div>
 
-            {/* <Cat /> */}
+
         </div >
     )
 })

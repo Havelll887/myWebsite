@@ -1,0 +1,295 @@
+$stand-color: #0794f1;
+$nose-color :#793838;
+$body-color :#ebe2e5;
+$tail-color :#ffeae8;
+$head-color :#ebe2e5;
+$ear-color  :#ebe2e5;
+$eye-color  : #000;
+
+// 尾巴动画
+$k-tail: (1: rotate(0),
+    2: rotate(10deg),
+    4: rotate(-10deg),
+    7: rotate(20deg),
+    9.5: rotate(-5deg),
+    12: rotate(20deg),
+    14: rotate(-5deg),
+);
+
+$k-left-whisker: (1: rotate(0),
+    1.5: rotate(0deg),
+    // 2: rotate(0),
+    2.5: rotate(-5deg),
+    3: rotate(0deg),
+    4: rotate(0deg),
+    7: rotate(10deg),
+    8: rotate(-5deg),
+    8.5: rotate(10deg),
+);
+$k-right-whisker: (1: rotate(180deg),
+    1.5: rotate(190deg),
+    2.5: rotate(180deg),
+    3: rotate(175deg),
+    4: rotate(190deg),
+    7: rotate(180deg),
+    8: rotate(185deg),
+    8.5: rotate(175deg),
+);
+
+$k-body: (1: scaleY(1),
+    1.5: scaleY(1.1),
+    // 2: rotate(0),
+    2.5: scaleY(1),
+    3: scaleY(1.2),
+    4: scaleY(1),
+    7: scaleY(1.1),
+    8: scaleY(1),
+    8.5: scaleY(1.1),
+);
+
+$k-left-ear: (0: rotate(-20deg),
+    1: rotate(-6deg),
+    2: rotate(-15deg),
+    4: rotate(-15deg),
+    5: rotate(-30deg),
+    6: rotate(-30deg),
+    7: rotate(0deg),
+    8: rotate(0deg),
+    9: rotate(-15deg),
+    12: rotate(-15deg),
+    14: rotate(-6deg),
+    15: rotateZ(-6deg));
+
+$k-right-ear: (0: rotateZ(-16deg),
+    1: rotateZ(-16deg),
+    2: rotateZ(-19deg),
+    4: rotateZ(-19deg),
+    5: rotateZ(-30deg),
+
+    5.5: rotateZ(-19deg),
+    5.6: rotateZ(-30deg),
+    5.7: rotateZ(-19deg),
+    6: rotateZ(-19deg),
+    6.1: rotateZ(-30deg),
+    6.2: rotateZ(-19deg),
+
+    7: rotateZ(-9deg),
+    8: rotateZ(-9deg),
+
+    9: rotateZ(-19deg),
+    9.1: rotateZ(-30deg),
+    9.2: rotateZ(-19deg),
+    9.4: rotateZ(-19deg),
+    9.5: rotateZ(-30deg),
+    9.6: rotateZ(-19deg),
+
+    12: rotateZ(-19deg),
+    14: rotateZ(-16deg),
+    15: rotateZ(-16deg));
+
+// $tail-interval: (11 - 7.5) / 14;
+
+$k-eye-rigtht:(1:rotate(-55deg),
+    5:rotate(-50deg));
+
+$k-eye-left:(1:rotate(61deg),
+    5:rotate(65deg));
+
+@mixin effect($name, $kf) {
+    @keyframes #{$name} {
+
+        @each $interval,
+        $transform in $kf {
+            #{percentage( $interval / 15)} {
+                transform: $transform;
+            }
+        }
+    }
+}
+
+@include effect('tail', $k-tail);
+@include effect('body', $k-body);
+
+@include effect('left-whisker', $k-left-whisker);
+@include effect('right-whisker', $k-right-whisker);
+@include effect('eye-rigtht', $k-eye-rigtht);
+@include effect('eye-left', $k-eye-left);
+
+@include effect('left-ear', $k-left-ear);
+@include effect('right-ear', $k-right-ear);
+
+
+@media screen and (max-width: 768px) {
+
+    .cat {
+        left: -110px !important;
+        top : -28px !important;
+    }
+}
+
+
+.main {
+    position         : relative;
+    /* 水平镜像翻转 */
+    -moz-transform   : scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform     : scaleX(-1);
+    transform        : scaleX(-1);
+    /*兼容IE*/
+    filter           : FlipH;
+
+
+    .cat {
+        width   : 110px;
+        height  : 50px;
+        position: absolute;
+        left    : -130px;
+        top     : -24px;
+
+        .stand {
+            position           : absolute;
+            // top             : 50%;
+            bottom             : -5px;
+            right              : 50%;
+            transform          : translate(43%);
+            height             : 5px;
+            width              : 180px;
+            border-radius      : 2px;
+            background-color   : $stand-color;
+            z-index            : 2;
+        }
+
+
+        .body {
+            width           : 110px;
+            height          : 50px;
+            background-color: $body-color;
+            position        : absolute;
+
+            border-top-left-radius : 50px * 2;
+            border-top-right-radius: 50px * 2;
+            animation              : body 12s none infinite;
+        }
+
+        .head {
+            content                   : "";
+            width                     : 70px;
+            height                    : 35px;
+            background-color          : $head-color;
+            position                  : absolute;
+            top                       : 30%;
+            // top                    : calc(50% - 10px);
+            left                      : -40px;
+            border-top-left-radius    : 40px * 2;
+            border-top-right-radius   : 40px * 2;
+            // border-radius: 10px 10px 0 10px;
+        }
+    }
+
+}
+
+.tail-container {
+    position: absolute;
+    right   : 0;
+    bottom  : -13px;
+    z-index : 3;
+}
+
+.tail {
+    position                  : absolute;
+    height                    : 30px;
+    width                     : 14px;
+    bottom                    : -10px;
+    right                     : 0;
+    border-bottom-right-radius: 5px;
+    background                : $tail-color;
+    z-index                   : 0;
+
+    >.tail {
+        animation                    : tail 14s none infinite;
+        height                       : 100%;
+        width                        : 14px;
+        transform-origin             : left;
+        // border-bottom-left-radius : 20px 20px;
+        // border-bottom-right-radius: 20px 20px;
+        // border-top-right-radius   : 40px;
+        border-radius                : 40px;
+    }
+}
+
+.ear {
+    position     : absolute;
+    left         : 4px;
+    top          : -4px;
+    width        : 0;
+    height       : 0;
+    border-left  : 12px solid transparent;
+    border-right : 12px solid transparent;
+    border-bottom: 20px solid $ear-color;
+    transform    : rotate(-30deg);
+    animation    : left-ear 12s both infinite;
+
+    +.ear {
+        animation: right-ear 12s both infinite;
+        top      : -12px;
+        left     : 30px;
+    }
+}
+
+.nose {
+    position        : absolute;
+    bottom          : 10px;
+    left            : -10px;
+    background-color: $nose-color;
+    height          : 5px;
+    width           : 5px;
+    border-radius   : 50%;
+}
+
+.whisker-container {
+    position           : absolute;
+    bottom             : 0px;
+    left               : -40px;
+    width              : 20px;
+    height             : 10px;
+    transform-origin   : right;
+    // animation       : left-whisker 12s both infinite;
+    transform          : rotate(90deg);
+
+    &:nth-child(2) {
+        left               : -10px;
+        bottom             : 0px;
+        transform-origin   : right;
+        transform          : rotate(90deg);
+        // animation       : right-whisker 12s both infinite;
+    }
+
+    &::after {
+        position           : absolute;
+        content            : "";
+        top                : 0;
+        // left: -2px;
+        // width: 4px;
+        // height: 2px ;
+        // border-radius: 4px;
+        // border: #000 4px solid;
+        // background-color: #fdf9de;
+    }
+}
+
+.whisker {
+    position        : absolute;
+    bottom          : 0;
+    width           : 40%;
+    border          : 1px solid $eye-color;
+    transform-origin: 100% 0;
+    transform       : rotate(60deg);
+    animation       : eye-left 12s both infinite;
+
+
+    &:last-child {
+        bottom   : 0;
+        transform: rotate(-50deg);
+        animation: eye-rigtht 12s both infinite;
+    }
+}
