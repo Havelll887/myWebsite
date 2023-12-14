@@ -1,7 +1,7 @@
-$stand-color: #0794f1;
+$stand-color: $primary-color;
 $nose-color :#793838;
 $body-color :#ebe2e5;
-$tail-color :#ffeae8;
+$tail-color :#ebe2e5;
 $head-color :#ebe2e5;
 $ear-color  :#ebe2e5;
 $eye-color  : #000;
@@ -123,7 +123,7 @@ $k-eye-left:(1:rotate(61deg),
 
     .cat {
         left: -110px !important;
-        top : -28px !important;
+        top : -32px !important;
     }
 }
 
