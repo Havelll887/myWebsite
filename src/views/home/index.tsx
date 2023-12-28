@@ -2,58 +2,12 @@ import { memo } from 'react'
 import { Trans } from 'react-i18next'
 import "./index.scss"
 
+import { personalLists, projectLists } from "./src/js/data"
 
-const projectList = [
-    {
-        name: "项目名称1",
-        tech: "项目技术路线项目技术路线项目技术路线项目技术路线",
-        content: "项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容",
-        bg: require('./src/img/tempPic.jpg')
-    },
-    {
-        name: "项目名称2",
-        tech: "项目技术路线项目技术路线项目技术路线项目技术路线",
-        content: "项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容",
-        bg: require('./src/img/tempPic.jpg')
-    },
-    {
-        name: "项目名称3",
-        tech: "项目技术路线项目技术路线项目技术路线项目技术路线",
-        content: "项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容",
-        bg: require('./src/img/tempPic.jpg')
-    }
-]
-
-const personalList = [
-    {
-        name: "个人项目1",
-        tech: "使用技术",
-        content: "项目介绍",
-        url: "代码仓库地址",
-        bg: require('./src/img/tempPic.jpg')
-    },
-    {
-        name: "个人项目2",
-        tech: "使用技术",
-        content: "项目介绍",
-        url: "代码仓库地址",
-        bg: require('./src/img/tempPic.jpg')
-    },
-    {
-        name: "个人项目3",
-        tech: "使用技术",
-        content: "项目介绍",
-        url: "代码仓库地址",
-        bg: require('./src/img/tempPic.jpg')
-    },
-    {
-        name: "个人项目3",
-        tech: "使用技术",
-        content: "项目介绍",
-        url: "代码仓库地址",
-        bg: require('./src/img/tempPic.jpg')
-    }
-]
+// 企业项目数据
+const projectList = projectLists
+// 个人项目数据
+const personalList = personalLists
 
 const Home = memo(() => {
     return (
@@ -103,9 +57,9 @@ const Home = memo(() => {
                                         style={{ backgroundImage: `url(${ele.bg})` }}>
                                     </div>
                                     <div className="card-body col-md-9">
-                                        <h5 className="card-title">{ele.name}</h5>
-                                        <p className="card-text">{ele.content}</p>
-                                        <p className="card-text"><small className="text-body-secondary">{ele.tech}</small></p>
+                                        <h5 className="card-title"><Trans>{ele.name}</Trans></h5>
+                                        <p className="card-text"><Trans>{ele.content}</Trans></p>
+                                        <p className="card-text"><small className="text-body-secondary"><Trans>{ele.tech}</Trans></small></p>
                                     </div>
                                 </div>
                             </div>
@@ -126,9 +80,10 @@ const Home = memo(() => {
                                         style={{ backgroundImage: `url(${ele.bg})` }}>
                                     </div>
                                     <div>
-                                        <h5 className="card-title">{ele.name}</h5>
-                                        <p className="card-text">{ele.content}</p>
-                                        <p className="card-text"><small className="text-body-secondary">{ele.tech}</small></p>
+                                        <h5 className="card-title"><Trans>{ele.name}</Trans></h5>
+                                        <p className="card-text"><Trans>{ele.content}</Trans></p>
+                                        <p className="card-text">
+                                            <small className="text-body-secondary"><Trans>{ele.tech}</Trans></small></p>
                                     </div>
                                 </div>
                             </div>
@@ -136,8 +91,6 @@ const Home = memo(() => {
                     })}
                 </div>
             </div>
-
-
         </div >
     )
 })

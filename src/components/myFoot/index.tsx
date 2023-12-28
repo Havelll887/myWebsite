@@ -5,22 +5,22 @@ import "./index.scss"
 // 操作按钮
 const iconList = [
     {
-        name: "Email",
+        name: "aoyue1122@outlook.com",
         class: 'bi-envelope',
         className: "icon--email"
     },
     {
-        name: "github",
+        name: "https://github.com/Havelll887",
         class: 'bi-github',
         className: "icon--github"
     },
     {
-        name: "location",
+        name: "jiangxi, China",
         class: 'bi-geo-alt',
         className: "icon--location"
     },
     {
-        name: "whatsapp",
+        name: "+86 18070088792",
         class: 'bi-whatsapp',
         className: "icon--whatsapp"
     },
