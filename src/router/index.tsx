@@ -9,17 +9,10 @@ export const routerArray: RouteObject[] = [];
 export const rootRouter: RouteObject[] = [
     {
         path: "/",
-        element: <Home />,
-        meta: {
-            title: "首页",
-        }
-    },
-    {
-        path: "/",
         element: <MyLayout />,
         children: [
             {
-                path: "/Home",
+                path: "/",
                 element: <Home />,
                 meta: {
                     title: "首页",
