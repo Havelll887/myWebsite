@@ -2,6 +2,7 @@ import { memo } from 'react'
 import { Trans } from 'react-i18next'
 import "./index.scss"
 
+import AvatorCat from "./components/avatorCat/index"
 import { personalLists, projectLists } from "./src/js/data"
 
 // 企业项目数据
@@ -17,7 +18,12 @@ const Home = memo(() => {
                 <div className="row box">
                     {/* 画像 */}
                     <div className="col-md-5 hero-items flex-row flex-center ">
-                        <div className="avator-box"><div className="avator"></div></div>
+                        <div className="avator-box">
+                            <AvatorCat />
+                            {/* <div className="avator">
+                                <div className="avator-cat-body"></div>
+                            </div> */}
+                        </div>
                         {/* <img className="avator" src={require('./src/img/img_person-avator.png')} alt='' /> */}
                     </div>
                     {/* 简短介绍 */}
