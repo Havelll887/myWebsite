@@ -10,14 +10,14 @@
     position           : relative;
     height             : 100vh;
     width              : 100%;
-    background-image: url('./src/img/img_banner_bg.jpg');
+    background-image   : url('./src/img/img_banner_bg.jpg');
 
     .box {
         height: 100%;
         width : 100%;
 
         .hero-items {
-            padding       : 0 !important;
+            padding: 0 !important;
         }
     }
 
@@ -29,18 +29,9 @@
     }
 
     .avator-box {
-        border: $primary-color 2px solid;
+        border       : $white-color 2px solid;
         border-radius: 149px;
-        .avator {
-            background-image: url('./src/img/img_person-avator.png');
-            background-size    : auto 100%;
-            background-position: center;
-            background-repeat  : no-repeat;
-            width: 300px;
-            height: 300px;
-            border-radius: 150px;
-            margin: 2px;
-        }
+        margin-top   : 50px;
     }
 }
 
@@ -102,7 +93,7 @@
         padding: 5rem 8rem;
     }
 
-   
+
 }
 
 @media screen and (min-width: 1440px) {
