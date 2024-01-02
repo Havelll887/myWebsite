@@ -37,21 +37,23 @@ const Home = memo(() => {
                 <div className="hero-section-slide"><Trans>slideDown</Trans></div>
             </div>
 
+            {/* nav 下滑stick */}
+
             {/* 一些关于我的内容介绍 （工作经历，教育经理，个人技能等）*/}
             <div className="myself-content item-gap">
                 总的来说还没想好
                 <div className="row">
                     {/* 文字 */}
-                    <div className="col-md-7">个人介绍内容</div>
+                    <div className="col-md-7">123</div>
                     {/* 右边 */}
-                    <div className="col-md-5">放一张和“我”相关的图片</div>
+                    <div className="col-md-5">23</div>
                 </div>
             </div>
 
             {/* gs项目 */}
             <div className="project-items item-gap">
 
-                <div>参与的大型项目，在职项目内容（面向公众且依旧有效的项目放上链接）</div>
+                {/* <div>参与的大型项目，在职项目内容（面向公众且依旧有效的项目放上链接）</div> */}
 
                 {/* 公安：大数据、后台、微警务、警民通 */}
                 <div className="flex-column">
