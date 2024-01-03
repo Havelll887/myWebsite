@@ -81,7 +81,6 @@ const myNav = memo(() => {
                     {/* 左侧的logo */}
                     <div className="left-logo">
                         <Cat />
-                        {/* <img src={require('./src/img/gif_logo.gif')}  className="navbar-logo"/> */}
                     </div>
 
                     {/* 响应式出现的菜单按钮  */}
