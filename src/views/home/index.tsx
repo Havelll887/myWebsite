@@ -3,6 +3,7 @@ import { Trans } from 'react-i18next'
 import "./index.scss"
 
 import AvatorCat from "./components/avatorCat/index"
+import BackgroundCanvas from "./components/backgroundCanvas/index"
 import { personalLists, projectLists } from "./src/js/data"
 
 // 企业项目数据
@@ -15,6 +16,7 @@ const Home = memo(() => {
         <div className="body-container">
             {/* 整页的banner  */}
             <div className="hero-section">
+                <BackgroundCanvas />
                 <div className="row box">
                     {/* 画像 */}
                     <div className="col-md-5 hero-items flex-row flex-center ">
