@@ -1,16 +1,2 @@
 
 my website code 
-
- 
- 
- 
-  
- 
-  
-  
-  
- 
- 
- 
- 
- 
