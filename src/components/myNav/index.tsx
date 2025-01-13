@@ -88,7 +88,6 @@ const myNav = memo(() => {
                         <span className="navbar-toggler-icon"></span>
                     </button>
 
-                    {/* 右侧的导航标签 */}
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <div className="navbar-nav">
                             {Object.values(tabList).map((ele, index) => {

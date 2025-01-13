@@ -19,7 +19,7 @@ export default class myLayout extends React.Component {
                 <Outlet />
 
                 {/* 底部 */}
-                <MyFoot />
+                {/* <MyFoot /> */}
             </div>
         )
     }

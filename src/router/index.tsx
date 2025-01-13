@@ -3,22 +3,24 @@ import { RouteObject } from "./interface";
 
 import MyLayout from "@/components/myLayout/index"
 import Home from "@/views/home/index"
+import IndexPage from '@/views/indexPage';
 
 export const routerArray: RouteObject[] = [];
 
 export const rootRouter: RouteObject[] = [
     {
         path: "/",
-        element: <MyLayout />,
-        children: [
-            {
-                path: "/",
-                element: <Home />,
-                meta: {
-                    title: "首页",
-                },
-            }
-        ]
+        element: <IndexPage />,
+        // element: <MyLayout />,
+        // children: [
+        //     {
+        //         path: "/",
+        //         element: <Home />,
+        //         meta: {
+        //             title: "首页",
+        //         },
+        //     }
+        // ]
     },
     {
         path: "*",
