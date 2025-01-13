@@ -42,23 +42,21 @@ const Home = memo(() => {
             {/* nav 下滑stick */}
 
             {/* 一些关于我的内容介绍 （工作经历，教育经理，个人技能等）*/}
-            <div className="myself-content item-gap">
+            {/* <div className="myself-content item-gap">
                 总的来说还没想好
                 <div className="row">
-                    {/* 文字 */}
                     <div className="col-md-7">123</div>
-                    {/* 右边 */}
                     <div className="col-md-5">23</div>
                 </div>
-            </div>
+            </div> */}
 
             {/* gs项目 */}
-            <div className="project-items item-gap">
+            {/* <div className="project-items item-gap"> */}
 
                 {/* <div>参与的大型项目，在职项目内容（面向公众且依旧有效的项目放上链接）</div> */}
 
                 {/* 公安：大数据、后台、微警务、警民通 */}
-                <div className="flex-column">
+                {/* <div className="flex-column">
                     {Object.values(projectList).map((ele, index) => {
                         return (
                             <div className="card margin-bottom-1rem" key={index}>
@@ -75,11 +73,11 @@ const Home = memo(() => {
                             </div>
                         )
                     })}
-                </div>
-            </div>
+                </div> */}
+            {/* </div> */}
 
             {/* 个人项目 */}
-            <div className="personal-projext item-gap">
+            {/* <div className="personal-projext item-gap">
                 <div>个人练习项目为主</div>
                 <div className="row row-cols-1 row-cols-md-3 g-4">
                     {Object.values(personalList).map((ele, index) => {
@@ -100,7 +98,7 @@ const Home = memo(() => {
                         )
                     })}
                 </div>
-            </div>
+            </div> */}
         </div >
     )
 })
