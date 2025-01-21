@@ -2,14 +2,26 @@ import "./backCanvas.scss"
 
 import ReactDOM from 'react-dom'
 import React, { useRef, useState, Suspense } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { useGLTF, Stage } from '@react-three/drei'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { useGLTF, Stage, OrbitControls, Stats, useCamera, PerspectiveCamera } from '@react-three/drei'
 
 
 useGLTF.preload(process.env.PUBLIC_URL + "/static" + '/Moon_1_3474.glb')
 
-const backCanvas = (props: any) => {
+const BackCanvass = (props: any) => {
+    console.log(props)
 
+    let cameraViewList = [[0, 10, 20], [0, 0, -10], [0, 10, 10], [0, -10, 10], [0, 0, 10], [0, 0, 0], [0, 0, -10]]
+    let { activeValue } = props
+    // let cameraView = useState<number[]>(cameraViewList[activeValue])
+    let cameraView = useState(cameraViewList[activeValue])
+    let cameraView0 = useState(cameraViewList[activeValue][0])
+    let cameraView1 = useState(cameraViewList[activeValue][1])
+    let cameraView2 = useState(cameraViewList[activeValue][2])
+
+    // let camera = useCamera(()=>({
+    //     // return new PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000
+    // }))
 
     const Box = (props: any) => {
 
@@ -42,7 +54,7 @@ const backCanvas = (props: any) => {
 
     const Model = (props: any) => {
         const { nodes, materials } = useGLTF(process.env.PUBLIC_URL + "/static" + '/Moon_1_3474.glb')
-        // console.log(nodes, materials)
+
         return (
             <group {...props} dispose={null}>
                 <mesh
@@ -59,21 +71,24 @@ const backCanvas = (props: any) => {
 
     return (
         <div className="back-canvas-container">
-            <Canvas onWheel={(e) => console.log('wheel spins')}>
+            <Canvas onWheel={(e) => console.log('wheel spins')}
+            >
+                {/* camera={camera} */}
                 <ambientLight intensity={Math.PI / 2} />
                 <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
                 <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
-                {/* <Suspense fallback={null}>
-                    <Box position={[-1.2, 0, 0]} />
-                    <Box position={[1.2, 0, 0]} />
-                    <Model />
-                </Suspense> */}
-                <Stage preset="rembrandt" intensity={1} environment="city" >
-                    <Model />
-                </Stage>
+                <Suspense fallback={null}>
+                    <Stage environment={null} >
+                        {/* <Box position={[-10.2, 0, 0]} /> */}
+                        <Model scale={0.01} position={0} />
+                    </Stage>
+                </Suspense>
+                <OrbitControls autoRotate autoRotateSpeed={1.0} />
+                <Stats />
+                {/* <PerspectiveCamera position={[0, 10, 20]} /> */}
             </Canvas>
         </div>
     )
 }
 
-export const BackCanvas = React.memo(backCanvas); 
+export const BackCanvas = React.memo(BackCanvass); 
