@@ -1,32 +1,41 @@
 import "./index.scss"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BackCanvas } from "@/components/backCanvas/backCanvas"
 
 
-const indexPage = () => {
+const IndexPages = () => {
+
+    const [activeValue, setActiveValue] = useState<number>(0);
+    let [stepLength, setStepLength] = useState<number>(0);
+
 
     // 鼠标滚轮事件
     const wheelSwiper = (event: React.WheelEvent<HTMLDivElement>) => {
-        // console.log(event)
+        const deltaY = event.deltaY;
+
+        setStepLength(stepLength => stepLength + deltaY);
+        console.log("stepLength", stepLength);
+        if (stepLength < 0) {
+            setStepLength(0);
+            setActiveValue(0);
+            return
+        }
+        if (Math.abs(stepLength) >= 6100) {
+            setStepLength(6000);
+            return;
+        }
+        if (!(activeValue >= 6 || activeValue <= -1)) {
+            setActiveValue(Math.floor(stepLength / 1000));
+        }
     }
 
-    // const [count, setCount] = useState(0);
-
-    // const lazyAdd = () => {
-    //     setTimeout(() => {
-    //         setCount(count => count + 1);
-    //     }, 3000);
-    // }
 
 
     return (
         <div className="index-page-container" onWheel={(e) => wheelSwiper(e)}>
-            <BackCanvas> </BackCanvas>
-            {/* <p>the count now is {count}</p>
-            <button onClick={() => setCount(count + 1)}>add</button>
-            <button onClick={lazyAdd}>lazyAdd</button> */}
+            <BackCanvas activeValue={activeValue} />
         </div>
     )
 }
 
-export const IndexPage = React.memo(indexPage)
+export const IndexPage = React.memo(IndexPages)
