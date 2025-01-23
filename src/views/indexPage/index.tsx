@@ -1,7 +1,7 @@
 import "./index.scss"
 import React, { useState, useEffect } from 'react';
 import { BackCanvas } from "@/components/backCanvas/backCanvas"
-
+import { FrontContainer } from "@/components/frontContainer/frontContainer"
 
 const IndexPages = () => {
 
@@ -13,20 +13,19 @@ const IndexPages = () => {
     const wheelSwiper = (event: React.WheelEvent<HTMLDivElement>) => {
         const deltaY = event.deltaY;
 
-        setStepLength(stepLength => stepLength + deltaY);
-        console.log("stepLength", stepLength);
+        setStepLength(stepLength => stepLength + deltaY * 3.5);
+
         if (stepLength < 0) {
             setStepLength(0);
             setActiveValue(0);
             return
         }
+
         if (Math.abs(stepLength) >= 6100) {
             setStepLength(6000);
             return;
         }
-        if (!(activeValue >= 6 || activeValue <= -1)) {
-            setActiveValue(Math.floor(stepLength / 1000));
-        }
+        setActiveValue(Math.floor(stepLength / 1000));
     }
 
 
@@ -34,6 +33,7 @@ const IndexPages = () => {
     return (
         <div className="index-page-container" onWheel={(e) => wheelSwiper(e)}>
             <BackCanvas activeValue={activeValue} />
+            <FrontContainer activeValue={activeValue} />
         </div>
     )
 }
