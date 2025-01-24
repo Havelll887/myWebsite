@@ -1,13 +1,19 @@
 import "./index.scss"
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { debounce } from "lodash";
 import { BackCanvas } from "@/components/backCanvas/backCanvas"
 import { FrontContainer } from "@/components/frontContainer/frontContainer"
+
+
 
 const IndexPages = () => {
 
     const [activeValue, setActiveValue] = useState<number>(0);
     let [stepLength, setStepLength] = useState<number>(0);
-
+    // 使用防抖
+    const doSomething = debounce((v: any) => {
+        console.log('do something after 1s: ', v)
+    }, 10000)
 
     // 鼠标滚轮事件
     const wheelSwiper = (event: React.WheelEvent<HTMLDivElement>) => {
@@ -26,8 +32,8 @@ const IndexPages = () => {
             return;
         }
         setActiveValue(Math.floor(stepLength / 1000));
+        console.log('do something after 1s: ', activeValue)
     }
-
 
 
     return (

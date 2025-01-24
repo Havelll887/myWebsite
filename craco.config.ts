@@ -18,14 +18,14 @@ module.exports = {
             }
         }
     },
-    rules: [
-        {
-            enforce: 'pre',
-            test: /\.js$/,
-            use: ['source-map-loader'],
-            exclude: ['/node_modules/@mediapipe']
-        }
-    ]
+    // rules: [
+    //     {
+    //         enforce: 'pre',
+    //         test: /\.js$/,
+    //         use: ['source-map-loader'],
+    //         exclude: ['/node_modules/@mediapipe']
+    //     }
+    // ]
 
 }
 
