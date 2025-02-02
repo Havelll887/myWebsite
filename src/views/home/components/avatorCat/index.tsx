@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import "./index.scss"
-
+// kkk
 const avatorCat = memo(() => {
     return (
         <div className="avator">
