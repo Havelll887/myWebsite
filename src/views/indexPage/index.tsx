@@ -4,7 +4,7 @@ import { debounce } from "lodash";
 import { BackCanvas } from "@/components/backCanvas/backCanvas"
 import { FrontContainer } from "@/components/frontContainer/frontContainer"
 
-
+const totalPage = 6
 
 const IndexPages = () => {
 
@@ -17,9 +17,10 @@ const IndexPages = () => {
 
     // 鼠标滚轮事件
     const wheelSwiper = (event: React.WheelEvent<HTMLDivElement>) => {
+
         const deltaY = event.deltaY;
 
-        setStepLength(stepLength => stepLength + deltaY * 3.5);
+        setStepLength(stepLength => stepLength + deltaY * 2.5);
 
         if (stepLength < 0) {
             setStepLength(0);
@@ -27,8 +28,8 @@ const IndexPages = () => {
             return
         }
 
-        if (Math.abs(stepLength) >= 6100) {
-            setStepLength(6000);
+        if (Math.abs(stepLength) >= (totalPage * 1000 + 100)) {
+            setStepLength(totalPage * 1000);
             return;
         }
         setActiveValue(Math.floor(stepLength / 1000));
@@ -45,3 +46,10 @@ const IndexPages = () => {
 }
 
 export const IndexPage = React.memo(IndexPages)
+
+/**
+ * TODO: 优化代码
+ * 1. 滚轮防抖
+ * 2. 视窗变化，内容重渲染
+ * 3. 
+*/
