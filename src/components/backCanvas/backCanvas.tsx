@@ -2,45 +2,33 @@ import "./backCanvas.scss"
 
 import React, { useRef, useState, Suspense, useEffect } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { useGLTF, Stage, OrbitControls, Stats, useCamera, OrthographicCamera } from '@react-three/drei'
-import { debounce } from "lodash";
+import { useGLTF, Stage, OrbitControls, Stats, useCamera, OrthographicCamera, PerspectiveCamera } from '@react-three/drei'
 
 import TWEEN from '@tweenjs/tween.js'
 
 useGLTF.preload(process.env.PUBLIC_URL + "/static" + '/Moon_1_3474.glb')
 
-// console.log(props)
-
-// let cameraViewList = [[0, 10, 20], [0, 0, -10], [0, 10, 10], [0, -10, 10], [0, 0, 10], [0, 0, 0], [0, 0, -10]]
-// let { activeValue } = props
-// // let cameraView = useState<number[]>(cameraViewList[activeValue])
-// let cameraView = useState(cameraViewList[activeValue])
-// let cameraView0 = useState(cameraViewList[activeValue][0])
-// let cameraView1 = useState(cameraViewList[activeValue][1])
-// let cameraView2 = useState(cameraViewList[activeValue][2])
-
-// let camera = useCamera(()=>({
-//     // return new PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000
-// }))
-
 
 let cameraViewList = [
+    [0, 0, 13],
+    [0, 0, 13],
+    [0, 0, 13],
     [0, 0, 10],
-    [12, 2, 25],
-    [10, -2, 25],
-    [-1.5, -3.8, 10],
-    [0, 0, 10],
+    // [12, 2, 25],
+    // [10, -2, 25],
+    // [-1.5, -3.8, 10],
+    // [0, 0, 10],
 ]
 
 let targetPosList = [
     [0, 0, 0],
     [-12, 2.0, -1.3],
     [10, -1.0, -0.6],
-    [0, 15, -0.6],
+    [0, 10, -5],
     // [-6.8, -0.4, 1],
 ]
 
-let cameraScale = [1, 1.3, 1.2, 1.1]
+let cameraScale = [0.8, 1.3, 1.2, 1.1]
 
 
 
@@ -81,7 +69,6 @@ function NumberChange(curNumber: number, targetNumber: number, changeGap: number
 }
 
 const CameraChange = (props: any) => {
-    // const [controls, setControls] = useState(props.controls);
     const controls = props.controls
     // 使用useThree函数获取相机
     const camera = useThree(state => state.camera)
@@ -146,9 +133,6 @@ const CameraChange = (props: any) => {
 
         }
 
-
-
-
         function animate(time = 10) {
             tween?.update(time)
             tweens?.update(time)
@@ -158,15 +142,9 @@ const CameraChange = (props: any) => {
     }
 
 
-
     return (<></>);
 }
 
-
-// export const setThemeConfig = (themeConfig: ThemeConfigProp) => ({
-// 	type: types.SET_THEME_CONFIG,
-// 	themeConfig
-// });
 
 const Loading = () => {
     return (
@@ -180,15 +158,9 @@ const BackCanvasItem = (props: any) => {
     const ref = useRef()
     const { activeValue } = props
 
-    // const { camera } = useThree()
-    // useEffect(() => {
-    //     console.log("camera", camera)
-    // })
-
     return (
         <div className="back-canvas-container">
             <Suspense fallback={<Loading />}>
-                {/* camera={{ fov: 0 , position:[0, 0, 10] }}  */}
                 <Canvas onWheel={(e) => console.log('wheel spins')}>
                     {/* environment light */}
                     <directionalLight
@@ -203,30 +175,25 @@ const BackCanvasItem = (props: any) => {
                         shadow-camera-bottom={-30}
                     />
                     <ambientLight intensity={Math.PI / 2} />
-                    {/* <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} /> */}
-                    <OrthographicCamera
+
+                    {/* 相机及控件 */}
+                    <PerspectiveCamera
                         makeDefault
-                        zoom={1}
-                        top={6}
-                        bottom={-6}
-                        left={12}
-                        right={-12}
-                        near={10}
-                        far={50}
-                        position={[0, 0, 10]}
+                        zoom={0.9}
+                        fov={50}
+                        near={0.1}
+                        far={100}
+                        position={[0, 0, 13]}
                     />
-
                     <OrbitControls ref={ref as any} />
-
-                    <Stats />
-
                     <CameraChange activeValue={activeValue} controls={ref} />
 
-                    {/* target object */}
-                    {/* <Stage environment={null} > */}
+
+                    {/* 一个性能监控工具 */}
+                    <Stats />
+
+                    {/* 模型 */}
                     <Model controls={ref} />
-                    {/* </Stage> */}
-                    {/* </OrthographicCamera> */}
 
                 </Canvas>
             </Suspense>

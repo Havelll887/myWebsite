@@ -1,18 +1,84 @@
-.font-container-box{
+.font-container-box {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
+    width   : 100%;
+    height  : 100%;
+    top     : 0;
+    bottom  : 0;
+    right   : 0;
+    left    : 0;
+    color   : #fff;
 }
 
-.text-test{
+.page-index-common {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 100px;
-    height: 100px;
-    background-color: #fff;
+    width   : 100%;
+    height  : 100%;
+    top     : 0;
+    bottom  : 0;
+    right   : 0;
+    left    : 0;
+}
+
+.text-test {
+    position: absolute;
+    top     : 0;
+    right   : 0;
+    width   : 100px;
+    height  : 100px;
+}
+
+.text-test1 {
+    position   : absolute;
+    top        : 100px;
+    right      : 0;
+    width      : 200px;
+    // height  : 100px;
+    z-index: 999;
+}
+
+.my-entering {
+    opacity: 1 !important
+}
+
+.my-entered {
+    opacity: 1 !important
+}
+
+.my-exiting {
+    opacity: 0 !important
+}
+
+.my-exited {
+    opacity: 0 !important
+}
+
+
+/* styles.css */
+.fade-enter {
+    opacity  : 0;
+    transform: translateY(-10px);
+}
+
+.fade-enter-active {
+    opacity   : 1;
+    transform : translateY(0);
+    transition: opacity 3000ms, transform 3000ms;
+}
+
+.fade-exit {
+    opacity  : 1;
+    transform: translateY(0);
+}
+
+.fade-exit-active {
+    opacity   : 0;
+    transform : translateY(-10px);
+    transition: opacity 1000ms, transform 1000ms;
+}
+
+.tooltip {
+    padding      : 10px;
+    margin-top   : 10px;
+    border-radius: 4px;
+    opacity: 1 !important;
 }

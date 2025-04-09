@@ -1,8 +1,9 @@
 import "./index.scss"
-import React, { useState, useEffect, useRef } from 'react';
-import { debounce } from "lodash";
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { debounce, throttle } from "lodash";
 import { BackCanvas } from "@/components/backCanvas/backCanvas"
 import { FrontContainer } from "@/components/frontContainer/frontContainer"
+
 
 const totalPage = 6
 
@@ -10,10 +11,15 @@ const IndexPages = () => {
 
     const [activeValue, setActiveValue] = useState<number>(0);
     let [stepLength, setStepLength] = useState<number>(0);
-    // 使用防抖
-    const doSomething = debounce((v: any) => {
-        console.log('do something after 1s: ', v)
-    }, 10000)
+
+    // 防抖处理函数
+    const handleWheelDebounced = useCallback(
+        throttle((event: WheelEvent) => {
+            console.log('处理滚轮事件', event);
+            // 实际逻辑（如页面缩放、滚动切换等）
+        }, 1000), // 防抖时间 300ms
+        [] // 依赖项为空，确保防抖函数只创建一次
+    );
 
     // 鼠标滚轮事件
     const wheelSwiper = (event: React.WheelEvent<HTMLDivElement>) => {
@@ -35,6 +41,15 @@ const IndexPages = () => {
         setActiveValue(Math.floor(stepLength / 1000));
         console.log('do something after 1s: ', activeValue)
     }
+
+    // 绑定原生滚轮事件
+    useEffect(() => {
+        window.addEventListener('wheel', handleWheelDebounced);
+        return () => {
+            window.removeEventListener('wheel', handleWheelDebounced);
+            handleWheelDebounced.cancel(); // 清理防抖未执行的任务
+        };
+    }, [handleWheelDebounced]);
 
 
     return (
