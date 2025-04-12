@@ -61,6 +61,7 @@ const FrontContainers = (props: any) => {
                 {activeValue == 1 && <div className="text-test1">第二页</div>}
                 {activeValue == 2 && <div className="text-test1">第三页</div>}
                 {activeValue == 3 && <div className="text-test1">第四页</div>}
+                {activeValue == 4 && <div className="text-test1">第四页</div>}
             </div>
         </div>
     )
