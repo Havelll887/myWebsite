@@ -4,18 +4,16 @@ import { CSSTransition } from "react-transition-group";
 
 
 import "./frontContainer.scss"
-
+import { PageIndex1 } from "@/views/page1/index"
 
 
 const FrontContainers = (props: any) => {
-    const ref = useRef()
-
     const { activeValue } = props
 
-    const [inProp, setInProp] = useState(false);
+    // const [inProp, setInProp] = useState(false);
 
-    const [isHovered, setIsHovered] = useState(false);
-    const nodeRef = useRef<HTMLDivElement>(null); // 解决 React 严格模式警告
+    // const [isHovered, setIsHovered] = useState(false);
+    // const nodeRef = useRef<HTMLDivElement>(null); // 解决 React 严格模式警告
 
     return (
         <div className="font-container-box">
@@ -57,7 +55,11 @@ const FrontContainers = (props: any) => {
 
             {/* 第一页 */}
             <div className="page-index-common">
-                {activeValue == 0 && <div className="text-test1">第一页</div>}
+                {activeValue == 0 &&
+                    <div>
+                        <PageIndex1 />
+                    </div>
+                }
                 {activeValue == 1 && <div className="text-test1">第二页</div>}
                 {activeValue == 2 && <div className="text-test1">第三页</div>}
                 {activeValue == 3 && <div className="text-test1">第四页</div>}
